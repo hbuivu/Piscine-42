@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_boolean.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbui-vu <huong.buivu@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/08 09:06:51 by hbui-vu           #+#    #+#             */
-/*   Updated: 2022/08/08 09:36:59 by hbui-vu          ###   ########.fr       */
+/*   Created: 2022/08/18 14:18:33 by hbui-vu           #+#    #+#             */
+/*   Updated: 2022/08/21 17:23:31 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_alpha(char *str)
-{
-	int	i;
+#ifndef FT_BOOLEAN_H
+# define FT_BOOLEAN_H
 
-	i = 0;
-	if (str == 0)
-		return (1);
-	while (str[i] != '\0')
-	{
-		if (str[i] < 65 || (str[i] > 90 && str[i] < 97) || str[i] > 122)
-			return (0);
-		else
-			i++;
-	}
-	return (1);
-}
+typedef int t_bool;
+#include <unistd.h>
+# define EVEN(nbr) (nbr % 2 == 0)
+# define TRUE 1
+# define FALSE 0
+# define EVEN_MSG "I have an even number of arguments.\n"
+# define ODD_MSG "I have an odd number of arguments.\n"
+# define SUCCESS 0
+
+#endif
+
+
+

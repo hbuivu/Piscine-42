@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   ft_point.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbui-vu <huong.buivu@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/08 09:06:51 by hbui-vu           #+#    #+#             */
-/*   Updated: 2022/08/08 09:37:17 by hbui-vu          ###   ########.fr       */
+/*   Created: 2022/08/21 14:35:36 by hbui-vu           #+#    #+#             */
+/*   Updated: 2022/08/21 17:41:49 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_numeric(char *str)
-{
-	int	i;
+#ifndef FT_POINT_H
+# define FT_POINT_H
 
-	i = 0;
-	if (str == 0)
-		return (1);
-	while (str[i] != '\0')
-	{
-		if (str[i] < 48 || str[i] > 57)
-			return (0);
-		else
-			i++;
-	}
-	return (1);
-}
+typedef struct t_point
+{
+	int	x;
+	int	y;
+}t_point;
+
+#endif

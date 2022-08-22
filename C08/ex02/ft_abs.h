@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
+/*   ft_abs.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbui-vu <huong.buivu@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/08 09:06:51 by hbui-vu           #+#    #+#             */
-/*   Updated: 2022/08/08 09:38:23 by hbui-vu          ###   ########.fr       */
+/*   Created: 2022/08/21 12:13:04 by hbui-vu           #+#    #+#             */
+/*   Updated: 2022/08/21 12:15:57 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_lowercase(char *str)
-{
-	int	i;
+#ifndef FT_ABS_H
+# define FT_ABS_H
 
-	i = 0;
-	if (str == 0)
-		return (1);
-	while (str[i] != '\0')
-	{
-		if (str[i] < 97 || str[i] > 122)
-			return (0);
-		else
-			i++;
-	}
-	return (1);
-}
+# define ABS(Value) ((Value) < (0) ? (Value * -1) : (Value))
+
+#endif
