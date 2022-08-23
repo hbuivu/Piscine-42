@@ -6,78 +6,36 @@
 /*   By: hbui-vu <huong.buivu@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 10:52:34 by hbui-vu           #+#    #+#             */
-/*   Updated: 2022/08/17 10:53:51 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2022/08/20 16:08:21 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-char	*ft_strcat(char *dest, char *src)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (dest[i] != '\0')
-		i++;
-	while (src[j] != '\0')
-	{
-		dest[i] = src[j];
-		i++;
-		j++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-int	ft_len(int size, char **strs, char *sep)
-{
-	int	i;
-	int j;
-	int	len;
-
-	i = 0;
-	j = 0;
-	len = 0;
-	while (i < size)
-	{
-		while (strs[i][j] != '\0')
-			j++;
-		len = len + j;
-		j = 0;
-		i++;
-	}
-	while (sep[j] != '\0')
-		j++;
-	len += 1 + ((size - 1) * j);
-	return (len);
-}
-
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
-	char	*ptr;
+	char	*str;
 	int		i;
+	int		j;
+	int		k;
 
+	str = malloc(sizeof(strs));
 	i = 0;
-	if (size <= 0)
-		ptr = malloc(1);
-		return (ptr);
-	ptr = malloc(sizeof(char) * ft_len(int size, char **strs, char *sep));
-	if (ptr)
+	k = 0;
+	while (i < size)
 	{
-		i = 0;
-		while (i < size)
+		j = 0;
+		while (strs[i][j] != '\0')
 		{
-			ft_strcat(ptr, strs[i]);
-			if (i != size - 1)
-				ft_strcat(ptr, sep);
-			i++;
+			str[k++] = strs[i][j++];
 		}
-		return (ptr);
+		j = 0;
+		while (sep[j] != '\0' && i < size - 1)
+		{
+			str[k++] = sep[j++];
+		}
+		i++;
 	}
-	return (0);
+	str[k] = '\0';
+	return (str);
 }
-
-//size might be smaller or bigger than the amount of strings in the strs
-//if strs[I];

@@ -6,49 +6,15 @@
 /*   By: hbui-vu <huong.buivu@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 13:14:30 by hbui-vu           #+#    #+#             */
-/*   Updated: 2022/08/18 09:55:43 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2022/08/20 11:29:11 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
 
-int	ft_len(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-int	check_base(char *str)
-{
-	int	counter;
-	int	i;
-
-	counter = 0;
-	i = 0;
-	while (str[counter] != '\0')
-	{
-		if (str[counter] == '-' || str[counter] == '+')
-			return (1);
-		else if (str[counter] == 127 || str[counter] <= 32)
-			return (1);
-		while (i < counter)
-		{
-			if (str[i] == str[counter])
-				return (1);
-			i++;
-		}
-		i = 0;
-		counter++;
-	}
-	if (counter <= 1)
-		return (1);
-	return (0);
-}
+int	ft_len(char *str);
+int	check_base(char *str);
 
 int	intlen(int long nb, char *base)
 {
@@ -130,8 +96,7 @@ void	ft_putnbr_base(long int n, char *base_to, char *num)
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
 	long int	i;
-	char		*num;
-	int			len;			
+	char		*num;			
 
 	if (check_base(base_from) || check_base(base_to))
 		return (NULL);

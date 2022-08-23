@@ -6,7 +6,7 @@
 /*   By: hbui-vu <huong.buivu@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 08:58:51 by hbui-vu           #+#    #+#             */
-/*   Updated: 2022/08/17 08:16:13 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2022/08/20 16:32:27 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,20 @@ int	*ft_range(int min, int max)
 {
 	int	n;
 	int	*ptr;
-	int	*ret_ptr;
 
-	n = max - min;
-	if (n <= 0)
-		return (NULL);
-	ptr = malloc(sizeof(int) * n);
-	ret_ptr = ptr;
-	if (ptr)
+	n = 0;
+	if (max <= min)
 	{
-		while (n > 0)
-		{
-			*ptr = min;
-			ptr++;
-			min++;
-			n--;
-		}
-		return (ret_ptr);
+		return (NULL);
 	}
-	else
-		exit (1);
+	ptr = malloc(sizeof(int) * (max - min));
+	if (ptr == NULL)
+		return (0);
+	while (min < max)
+	{
+		ptr[n] = min;
+		n++;
+		min++;
+	}
+	return (ptr);
 }
